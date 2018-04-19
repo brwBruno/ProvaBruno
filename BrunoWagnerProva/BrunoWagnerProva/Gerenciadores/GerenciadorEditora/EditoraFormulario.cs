@@ -13,6 +13,24 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorEditora
 {
     public partial class EditoraFormulario : Form
     {
+        private Editora _editora;
+        private Livro _livroEditora;
+        public Editora editora
+        {
+            get { return _editora; }
+            set
+            {
+                _editora = value;
+                txtNome.Text = _editora.Nome;
+                foreach (Livro item in _editora.Livros)
+                {
+                    cmbLivros.Items.Add(item);
+                }
+                txtEndereco.Text = _editora.Endereco;
+                mskTelefone.Text = Convert.ToString(_editora.Telefone);
+            }
+        }
+
         public EditoraFormulario()
         {
             InitializeComponent();
@@ -25,21 +43,46 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorEditora
             editora = editoraSelecionada;
         }
 
-        private Editora _editora;
-
-        public Editora editora
+        public EditoraFormulario(IList<Livro> livros)
         {
-            get { return _editora; }
-            set
+            InitializeComponent();
+
+            PopulaCmbLivros(livros);
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (_editora == null)
+                _editora = new Editora();
+
+
+            List<Livro> livro = new List<Livro>();
+            _editora.Nome = txtNome.Text;
+            _livroEditora = (Livro)cmbLivros.SelectedItem;
+            livro.Add(_livroEditora);
+            _editora.Livros = livro;
+            _editora.Endereco = txtEndereco.Text;
+            mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            _editora.Telefone = Convert.ToInt32(mskTelefone.Text);
+
+            try
             {
-                _editora = value;
-                txtNome.Text = _editora.Nome;
-                foreach (var item in _editora.Livros)
-                {
-                    cmbLivros.Items.Add(item);
-                }
-                txtEndereco.Text = _editora.Endereco;
-                mskTelefone.Text = Convert.ToString(_editora.Telefone);
+                _editora.Valida();
+            }
+            catch (Exception ex)
+            {
+                DialogResult = DialogResult.None;
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void PopulaCmbLivros(IList<Livro> livros)
+        {
+            cmbLivros.Items.Clear();
+
+            foreach (var item in livros)
+            {
+                cmbLivros.Items.Add(item);
             }
         }
     }

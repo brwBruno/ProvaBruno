@@ -39,7 +39,6 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorLivros
         {
             try
             {
-                
                 IList<Livro> livros = _livroService.SelecionarTodos();
                 _livroControle.CarregarListaLivros(livros);
             }
@@ -50,6 +49,8 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorLivros
             }
         }
 
+
+
         public override UserControl CarregarListagem()
         {
             if (_livroControle == null)
@@ -57,6 +58,8 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorLivros
 
             return _livroControle;
         }
+
+
 
         public override void Editar()
         {
@@ -84,10 +87,10 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorLivros
         {
             Livro livroSelecionado = _livroControle.ObtemLivroSelecionado();
 
-            if(livroSelecionado != null)
+            if (livroSelecionado != null)
             {
                 DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir o Livro "
-                    + livroSelecionado.Titulo,"Excluir Livro",MessageBoxButtons.OKCancel);
+                    + livroSelecionado.Titulo, "Excluir Livro", MessageBoxButtons.OKCancel);
 
                 if (resultado == DialogResult.OK)
                 {
@@ -130,8 +133,14 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorLivros
             {
                 Cadastrar = true,
                 Editar = true,
-                Excluir = true
+                Excluir = true,
+                CadastrarLivro = false,
+                ListarLivro = false,
             };
         }
+
+        public override void CarregarListagemEditora() { throw new NotImplementedException(); }
+        public override void AdicionarLivrosEditora() { throw new NotImplementedException(); }
+        public override string ObtemObejto() { throw new NotImplementedException(); }
     }
 }

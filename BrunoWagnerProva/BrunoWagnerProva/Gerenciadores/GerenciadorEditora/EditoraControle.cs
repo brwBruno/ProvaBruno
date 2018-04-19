@@ -18,7 +18,7 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorEditora
             InitializeComponent();
         }
 
-        public void CarregarListaEditora(IList<Editora> editoras)
+        public void CarregarListaEditora(List<Editora> editoras)
         {
             listBox1.Items.Clear();
             foreach (var item in editoras)
@@ -29,5 +29,4 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorEditora
 
         public Editora ObtemEditoraSelecionado() => listBox1.SelectedItem as Editora;
     }
-}
 }

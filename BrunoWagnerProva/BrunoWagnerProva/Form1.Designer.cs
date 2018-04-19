@@ -32,15 +32,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.contextoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.livroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnCadastrar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
+            this.btnCadLivroEdi = new System.Windows.Forms.ToolStripButton();
+            this.btnListLivroEdi = new System.Windows.Forms.ToolStripButton();
             this.lblStatus = new System.Windows.Forms.ToolStripLabel();
             this.panel = new System.Windows.Forms.Panel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.editoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,9 +67,16 @@
             // livroToolStripMenuItem
             // 
             this.livroToolStripMenuItem.Name = "livroToolStripMenuItem";
-            this.livroToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.livroToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.livroToolStripMenuItem.Text = "Livro";
             this.livroToolStripMenuItem.Click += new System.EventHandler(this.livroToolStripMenuItem_Click);
+            // 
+            // editoraToolStripMenuItem
+            // 
+            this.editoraToolStripMenuItem.Name = "editoraToolStripMenuItem";
+            this.editoraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editoraToolStripMenuItem.Text = "Editora";
+            this.editoraToolStripMenuItem.Click += new System.EventHandler(this.editoraToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -78,9 +85,9 @@
             this.btnCadastrar,
             this.btnEditar,
             this.btnExcluir,
-            this.lblStatus,
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.btnCadLivroEdi,
+            this.btnListLivroEdi,
+            this.lblStatus});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(573, 38);
@@ -117,6 +124,28 @@
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // btnCadLivroEdi
+            // 
+            this.btnCadLivroEdi.Image = ((System.Drawing.Image)(resources.GetObject("btnCadLivroEdi.Image")));
+            this.btnCadLivroEdi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCadLivroEdi.Name = "btnCadLivroEdi";
+            this.btnCadLivroEdi.Size = new System.Drawing.Size(90, 35);
+            this.btnCadLivroEdi.Text = "Cadastrar Livro";
+            this.btnCadLivroEdi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCadLivroEdi.Visible = false;
+            this.btnCadLivroEdi.Click += new System.EventHandler(this.btnCadLivroEdi_Click);
+            // 
+            // btnListLivroEdi
+            // 
+            this.btnListLivroEdi.Image = ((System.Drawing.Image)(resources.GetObject("btnListLivroEdi.Image")));
+            this.btnListLivroEdi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnListLivroEdi.Name = "btnListLivroEdi";
+            this.btnListLivroEdi.Size = new System.Drawing.Size(68, 35);
+            this.btnListLivroEdi.Text = "Listar Livro";
+            this.btnListLivroEdi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnListLivroEdi.Visible = false;
+            this.btnListLivroEdi.Click += new System.EventHandler(this.btnListLivroEdi_Click);
+            // 
             // lblStatus
             // 
             this.lblStatus.Name = "lblStatus";
@@ -125,37 +154,13 @@
             // 
             // panel
             // 
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 62);
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.Location = new System.Drawing.Point(12, 62);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(573, 272);
+            this.panel.Size = new System.Drawing.Size(549, 260);
             this.panel.TabIndex = 2;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(90, 35);
-            this.toolStripButton1.Text = "Cadastrar Livro";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Visible = false;
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(68, 35);
-            this.toolStripButton2.Text = "Listar Livro";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton2.Visible = false;
-            // 
-            // editoraToolStripMenuItem
-            // 
-            this.editoraToolStripMenuItem.Name = "editoraToolStripMenuItem";
-            this.editoraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.editoraToolStripMenuItem.Text = "Editora";
             // 
             // Principal
             // 
@@ -191,8 +196,8 @@
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripLabel lblStatus;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton btnCadLivroEdi;
+        private System.Windows.Forms.ToolStripButton btnListLivroEdi;
         private System.Windows.Forms.ToolStripMenuItem editoraToolStripMenuItem;
     }
 }

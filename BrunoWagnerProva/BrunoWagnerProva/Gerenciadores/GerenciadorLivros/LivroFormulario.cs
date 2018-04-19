@@ -43,13 +43,13 @@ namespace BrunoWagnerProva.Gerenciadores.GerenciadorLivros
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (_livro == null)
-            {
                 _livro = new Livro();
-            }
+
             _livro.Titulo = txtTitulo.Text;
             _livro.AnoEdicao = Convert.ToInt32(numAno.Value);
             _livro.Autor = txtAutor.Text;
             _livro.Volume = Convert.ToInt32(numVolume.Value);
+
             try
             {
                 _livro.Valida();

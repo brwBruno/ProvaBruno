@@ -41,7 +41,15 @@ namespace BrunoWagnerProva.Infra.Datra
                                                 Autor,
                                                 Volume
                                              FROM TBLivro WHWRE Id = {0}Id";
-
+        private const string selectIdEditoraLivros = @"SELECT l.Id,
+                                                            l.Titulo,
+                                                            l.Ano_edicao,
+                                                            l.Autor,
+                                                            l.Volume
+                                                     FROM TBLivro AS l
+                                                     INNER JOIN TBEditora_Livros AS el
+                                                     ON l.Id = el.Id_livro
+                                                     WHERE l.Id = {0}Id";
         #endregion SQL
 
         public Livro Adicionar(Livro entidade)
@@ -85,6 +93,27 @@ namespace BrunoWagnerProva.Infra.Datra
                 { "Autor", entidade.Autor },
                 { "Volume", entidade.Volume }
             };
+        }
+
+        private List<Livro> ExiteChaveEstrangeira(Livro livro)
+        {
+            var parms = new Dictionary<string, object> { { "Id", livro.Id } };
+
+            return Db.SelecionarTodos(selectIdEditoraLivros, Converter, parms);
+        }
+
+        public bool ExisteFk(Livro livro)
+        {
+            List<Livro> livros = ExiteChaveEstrangeira(livro);
+
+            foreach (Livro l in livros)
+            {
+                if (l.Id == livro.Id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private static Func<IDataReader, Livro> Converter = reader =>

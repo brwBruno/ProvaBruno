@@ -14,6 +14,11 @@ namespace BrunoWagnerProva.Dominio
         public string Endereco { get; set; }
         public int Telefone { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format("{0} - {1} - {2}", Nome, Endereco, Telefone);
+        }
+
         public override void Valida()
         {
             if (Nome.Length < 4)

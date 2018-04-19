@@ -19,5 +19,9 @@ namespace BrunoWagnerProva.Gerenciadores.Principal
 
         public abstract EstadoBotoes PegarEstadoBotoes();
         public abstract NomeBotoes PegaNomeBotoes();
+
+        public abstract void AdicionarLivrosEditora();
+        public abstract void CarregarListagemEditora();
+        public abstract string ObtemObejto();
     }
 }

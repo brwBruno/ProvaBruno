@@ -65,6 +65,18 @@
     <Compile Include="Gerenciadores\GerenciadorEditora\EditoraFormulario.Designer.cs">
       <DependentUpon>EditoraFormulario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gerenciadores\GerenciadorEditora\Features\CadastrarLivroEditoraFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerenciadores\GerenciadorEditora\Features\CadastrarLivroEditoraFormulario.Designer.cs">
+      <DependentUpon>CadastrarLivroEditoraFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gerenciadores\GerenciadorEditora\Features\ListaLivrosEditoraFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerenciadores\GerenciadorEditora\Features\ListaLivrosEditoraFormulario.Designer.cs">
+      <DependentUpon>ListaLivrosEditoraFormulario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gerenciadores\GerenciadorEditora\GerenciadorFormularioEditora.cs" />
     <Compile Include="Gerenciadores\GerenciadorLivros\GerenciadorFormularioLivro.cs" />
     <Compile Include="Gerenciadores\GerenciadorLivros\LivroFormulario.cs">
@@ -90,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gerenciadores\GerenciadorEditora\EditoraFormulario.resx">
       <DependentUpon>EditoraFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gerenciadores\GerenciadorEditora\Features\CadastrarLivroEditoraFormulario.resx">
+      <DependentUpon>CadastrarLivroEditoraFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gerenciadores\GerenciadorEditora\Features\ListaLivrosEditoraFormulario.resx">
+      <DependentUpon>ListaLivrosEditoraFormulario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gerenciadores\GerenciadorLivros\LivroFormulario.resx">
       <DependentUpon>LivroFormulario.cs</DependentUpon>

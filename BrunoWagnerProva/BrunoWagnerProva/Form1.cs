@@ -1,5 +1,6 @@
 ﻿using BrunoWagnerProva.Aplicacao;
 using BrunoWagnerProva.Dominio.Interfaces;
+using BrunoWagnerProva.Gerenciadores.GerenciadorEditora;
 using BrunoWagnerProva.Gerenciadores.GerenciadorLivros;
 using BrunoWagnerProva.Gerenciadores.Principal;
 using BrunoWagnerProva.Infra.Datra;
@@ -18,11 +19,15 @@ namespace BrunoWagnerProva
     public partial class Principal : Form
     {
         private static ILivroRepository _livroRepository = new LivroRepository();
+        private static IEditoraRepository _editoraRepository = new EditoraRepository();
 
         private LivroService _livroService = new LivroService(_livroRepository);
+        private EditoraService _editoraService = new EditoraService(_editoraRepository);
         private GerenciadorFormulario _gerenciador;
 
         GerenciadorFormularioLivro _livroGerenciador;
+        GerenciadorFormularioEditora _editoraGerenciador;
+
 
         public Principal()
         {
@@ -56,6 +61,8 @@ namespace BrunoWagnerProva
             btnCadastrar.Enabled = estado.Cadastrar;
             btnEditar.Enabled = estado.Editar;
             btnExcluir.Enabled = estado.Excluir;
+            btnListLivroEdi.Visible = estado.ListarLivro;
+            btnCadLivroEdi.Visible = estado.CadastrarLivro;
 
             var nome = _gerenciador.PegaNomeBotoes();
             btnCadastrar.Text = nome.Cadastrar;
@@ -102,6 +109,27 @@ namespace BrunoWagnerProva
                 _livroGerenciador = new GerenciadorFormularioLivro(_livroService);
 
             CarregarCadastro(_livroGerenciador);
+        }
+
+        private void editoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_editoraGerenciador == null)
+                _editoraGerenciador = new GerenciadorFormularioEditora(_editoraService, _livroService);
+
+            btnCadLivroEdi.Visible = true;
+            btnListLivroEdi.Visible = true;
+
+            CarregarCadastro(_editoraGerenciador);
+        }
+
+        private void btnCadLivroEdi_Click(object sender, EventArgs e)
+        {
+            _gerenciador.AdicionarLivrosEditora();
+        }
+
+        private void btnListLivroEdi_Click(object sender, EventArgs e)
+        {
+            _gerenciador.CarregarListagemEditora();
         }
     }
 }

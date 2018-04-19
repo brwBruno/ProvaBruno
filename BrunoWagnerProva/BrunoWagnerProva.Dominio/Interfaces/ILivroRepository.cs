@@ -9,6 +9,6 @@ namespace BrunoWagnerProva.Dominio.Interfaces
 {
     public interface ILivroRepository : IRepository<Livro>
     {
-
+        bool ExisteFk(Livro livro);
     }
 }

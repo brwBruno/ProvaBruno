@@ -9,6 +9,8 @@ namespace BrunoWagnerProva.Dominio.Interfaces
 {
     public interface IEditoraRepository : IRepository<Editora>
     {
-
+        Editora AdicionarEditoraLivro(Editora editora);
+        Editora AdicionarLivrosEditora(Editora editora);
+        List<Livro> SelecionarLivrosEditora(Editora editora);
     }
 }

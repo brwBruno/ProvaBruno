@@ -20,7 +20,13 @@ namespace BrunoWagnerProva.Aplicacao
         public void Adicionar(Editora entidade)
         {
             entidade.Valida();
-            _editoraRepository.Adicionar(entidade);
+            _editoraRepository.AdicionarEditoraLivro(entidade);
+        }
+
+        public void AdicionarLivrosEditora(Editora entidade)
+        {
+            entidade.Valida();
+            _editoraRepository.AdicionarLivrosEditora(entidade);
         }
 
         public void Editar(Editora entidade)
@@ -43,6 +49,11 @@ namespace BrunoWagnerProva.Aplicacao
         public List<Editora> SelecionarTodos()
         {
             return _editoraRepository.SelecionarTodos();
+        }
+
+        public List<Livro> SelecionarLivrosEditora(Editora entidade)
+        {
+            return _editoraRepository.SelecionarLivrosEditora(entidade);
         }
     }
 }

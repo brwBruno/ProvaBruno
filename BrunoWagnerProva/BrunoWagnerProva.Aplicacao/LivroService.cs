@@ -31,8 +31,10 @@ namespace BrunoWagnerProva.Aplicacao
 
         public void Excluir(Livro entidade)
         {
-            entidade.Valida();
-            _livroRepository.Excluir(entidade);
+            if (!_livroRepository.ExisteFk(entidade))
+                _livroRepository.Excluir(entidade);
+            else
+                throw new Exception("Você não pode deletar uma livro que esteja cadastrado em uma editora.");
         }
 
         public Livro SelecionarPorId(Livro entidade)

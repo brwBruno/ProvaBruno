@@ -11,5 +11,7 @@ namespace BrunoWagnerProva.Botoes
         public bool Cadastrar { get; set; }
         public bool Editar { get; set; }
         public bool Excluir { get; set; }
+        public bool CadastrarLivro { get; set; }
+        public bool ListarLivro { get; set; }
     }
 }
